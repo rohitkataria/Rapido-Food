@@ -124,7 +124,6 @@ const MainList: FC = () => {
         contentContainerStyle={styles.listContainer}
         stickySectionHeadersEnabled={true}
         viewabilityConfig={viewabilityConfig}
-       
         onViewableItemsChanged={onViewableItemsChanged}
         renderSectionHeader={({section}) => {
             if (section.title !== 'Restaurants') {
