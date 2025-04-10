@@ -1,32 +1,30 @@
-// In App.js in a new project
-
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+import SequenceGame from './src/components/SequenceGame';
+import { HomeScreen } from './src/screens';
+import SequenceGameScreen from './src/screens/SequecneGameScreen';
+import SplashScreen from './src/screens/SplashScreen';
+import ReactionTestScreen from './src/screens/ReactionTestScreen';
+import SudokoGameScreen from './src/screens/SudokoGameScreen';
+import NumberOrderScreen from './src/screens/NumberOrderScreen';
 
 const Stack = createNativeStackNavigator();
 
-function RootStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-    </Stack.Navigator>
-  );
-}
-
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <RootStack />
+      <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="SequenceGameScreen" component={SequenceGameScreen} />
+        <Stack.Screen name="ReactionTestScreen" component={ReactionTestScreen} />
+        <Stack.Screen name="SudokoGameScreen" component={SudokoGameScreen} />
+        <Stack.Screen name="NumberOrderScreen" component={NumberOrderScreen} />
+        
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;
